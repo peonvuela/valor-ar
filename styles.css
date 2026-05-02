@@ -146,3 +146,18 @@ body {
   }
 
 }
+
+/* TÉRMINOS */
+.terms {
+  max-width: 700px;
+}
+
+.terms h2 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.terms p {
+  margin: 10px 0;
+  line-height: 1.5;
+}

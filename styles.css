@@ -6,73 +6,134 @@
   --text: #1a1a1a;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Segoe UI', system-ui, sans-serif;
   color: var(--text);
 }
 
-/* CONTENEDOR PRINCIPAL */
-.container {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* IZQUIERDA */
-.left {
-  flex: 1;
-  background: linear-gradient(135deg, #0d1b2a, #1b263b);
-  color: white;
-  padding: 60px 40px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* NAV */
+.nav {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 .logo {
-  width: 100px;
+  height: 50px;
+}
+
+/* HERO */
+/* HERO 2 COLUMNAS */
+.hero {
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  color: white;
+  padding: 80px 20px;
+}
+
+.hero-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* IZQUIERDA */
+.hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-logo {
+  width: 90px; /* tamaño equilibrado */
   margin-bottom: 20px;
 }
 
-.left h1 {
-  font-size: 2.4rem;
+.hero-left h1 {
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.subtitle {
+.hero-left p {
   font-size: 1.1rem;
   opacity: 0.9;
 }
 
 /* DERECHA */
-.right {
+.hero-right {
   flex: 1;
-  padding: 60px 40px;
-
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 15px;
+}
+
+/* PLANES en hero */
+.hero-right .plan {
+  background: white;
+  color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero-right .featured {
+  border: 2px solid #3a86ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+}
+
+/* SECCIONES */
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.section.alt {
+  background: var(--light);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 /* PLANES */
+.plans {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
 .plan {
   border: 1px solid #eee;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  width: 260px;
   background: white;
 }
 
 .plan.featured {
   border: 2px solid var(--accent);
+  transform: scale(1.05);
 }
 
-/* TEXTO */
 .price {
   font-size: 2rem;
   margin: 10px 0;
@@ -87,28 +148,41 @@ body {
   color: #666;
 }
 
-.social-proof {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-bottom: 15px;
+/* GRID */
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.micro {
-  font-size: 0.85rem;
-  color: #777;
-  margin-top: 10px;
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* BOTONES */
+/* STEPS */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+/* CTA */
 .cta {
   display: inline-block;
-  margin-top: 10px;
-  padding: 14px 24px;
+  margin-top: 20px;
+  padding: 14px 28px;
   background: var(--accent);
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .cta:hover {
@@ -119,45 +193,57 @@ body {
   background: #999;
 }
 
-/* 📱 MOBILE */
-@media (max-width: 768px) {
-
-  .container {
-    flex-direction: column;
-  }
-
-  .left {
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .right {
-    padding: 30px 20px;
-  }
-
-  .logo {
-    width: 80px;
-    margin: auto;
-    margin-bottom: 15px;
-  }
-
-  .left h1 {
-    font-size: 1.8rem;
-  }
-
-}
-
-/* TÉRMINOS */
-.terms {
-  max-width: 700px;
-}
-
-.terms h2 {
-  margin-top: 20px;
+.cta.big {
   font-size: 1.2rem;
 }
 
-.terms p {
-  margin: 10px 0;
-  line-height: 1.5;
+/* CTA FINAL */
+.cta-section {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.micro {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+}
+
+/* ANIMACIONES */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-proof {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.payment-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.mp-logo {
+  margin-top: 8px;
+  width: 140px;
+  opacity: 0.85;
 }

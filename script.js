@@ -1,19 +1,27 @@
-// Tracking básico de botones
+// Animaciones
+const elements = document.querySelectorAll('.fade-in');
+
+const reveal = () => {
+  const trigger = window.innerHeight * 0.85;
+
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
+    if (top < trigger) {
+      el.classList.add('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', reveal);
+reveal();
+
+// Tracking básico
 document.querySelectorAll('.cta').forEach(btn => {
   btn.addEventListener('click', () => {
-    console.log('Click en botón de aporte');
+    console.log('Click CTA - Valor.AR');
 
-    // Para futuro (Google Analytics / Meta Pixel)
-    // gtag('event', 'click_aporte', { method: 'mercadopago' });
+    // Ejemplo para futuro:
+    // gtag('event', 'click_cta_valorar');
   });
 });
-
-
-// Opcional: detectar dispositivo (para mejoras futuras)
-const isMobile = window.innerWidth < 768;
-
-if (isMobile) {
-  console.log("Usuario en mobile");
-} else {
-  console.log("Usuario en desktop");
-}

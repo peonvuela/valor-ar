@@ -1,41 +1,27 @@
-// Animaciones al hacer scroll
+// Animaciones
 const elements = document.querySelectorAll('.fade-in');
 
-const showOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.85;
+const reveal = () => {
+  const trigger = window.innerHeight * 0.85;
 
   elements.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
+    const top = el.getBoundingClientRect().top;
 
-    if (boxTop < triggerBottom) {
+    if (top < trigger) {
       el.classList.add('visible');
     }
   });
 };
 
-window.addEventListener('scroll', showOnScroll);
-showOnScroll();
+window.addEventListener('scroll', reveal);
+reveal();
 
-
-// Tracking básico de CTA (útil para medir conversiones)
-const ctas = document.querySelectorAll('.cta');
-
-ctas.forEach(btn => {
+// Tracking básico
+document.querySelectorAll('.cta').forEach(btn => {
   btn.addEventListener('click', () => {
-    console.log('CTA click - Sumarme');
+    console.log('Click CTA - Valor.AR');
 
-    // Si después querés conectar con analytics:
-    // gtag('event', 'click', { event_category: 'CTA', event_label: 'Sumarme' });
-  });
-});
-
-
-// Scroll suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+    // Ejemplo para futuro:
+    // gtag('event', 'click_cta_valorar');
   });
 });
